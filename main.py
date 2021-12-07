@@ -1,13 +1,27 @@
 import time
 import fibo_functions
+import fibo_classes
 
 def main():
-    print("Testing Fibonacci algorithms:\n")
+    print("Testing Fibonacci algorithms:")
 
-    print("Recursive algorithm:")
-    n = 37
-    current_time = time.time()
-    print(f"For n = {n}: {fibo_functions.fibo_recursive(n)} - Execution time: {round(time.time() -  current_time, 3)} sec.")
+    print("\nRecursive algorithm:")
+    n = 35
+    start_time = time.time()
+    f = fibo_functions.fibo_recursive(n)
+    end_time = time.time()
+    print(f"For n = {n}: {f} - Execution time: {round(end_time -  start_time, 3)} sec.")
+
+    print("\nRecursive algorithm with memoization:")
+    n = 996
+    start_time = time.time()
+    fibo_memoization = fibo_classes.Fibo_Memoization()
+    f = fibo_memoization(n)
+    end_time = time.time()
+    if n > 100:
+        f = float(f)
+    print(f"For n = {n}: {f} - Execution time: {round(end_time -  start_time, 3)} sec.")
+
 
 
 
