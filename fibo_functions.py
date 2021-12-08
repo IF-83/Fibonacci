@@ -21,5 +21,5 @@ def fibo_recursive_linear(n: int) -> int:
     """ number of recursive calls is O(n); overall complexity: O(n^2) """
     if n == 0:
         return 0
-    return __fibos_recursion[1]
+    return __fibos_recursion(n)[1]
 
