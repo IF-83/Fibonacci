@@ -6,7 +6,7 @@ def main():
     print("Testing Fibonacci algorithms:")
 
     print("\nRecursive algorithm:")
-    n = 35
+    n = 30
     start_time = time.time()
     f = fibo_functions.fibo_recursive(n)
     end_time = time.time()
@@ -26,6 +26,15 @@ def main():
     n = 996
     start_time = time.time()
     f = fibo_functions.fibo_recursive_linear(n)
+    end_time = time.time()
+    if n > 100:
+        f = float(f)
+    print(f"For n = {n}: {f} - Execution time: {round(end_time -  start_time, 3)} sec.")
+
+    print("\nTail-call optimizable recursive algorithm:")
+    n = 900
+    start_time = time.time()
+    f = fibo_functions.fibo_tail_call(n)
     end_time = time.time()
     if n > 100:
         f = float(f)
