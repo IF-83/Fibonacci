@@ -28,7 +28,7 @@ def __fibos_recursive_tail_call(l: list) -> list:
     """ auxiliary function """
     if l[0] == 0:
         return l
-    return __fibos_recursive_tail_call [l[0]-1, l[2], l[1] + l[2]]
+    return __fibos_recursive_tail_call([l[0]-1, l[2], l[1] + l[2]])
 
 
 def fibo_tail_call(n: int) -> int:
