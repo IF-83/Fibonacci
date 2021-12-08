@@ -35,3 +35,11 @@ def fibo_tail_call(n: int) -> int:
     """ Time complexity is still O(n^2), but only O(n) space if optimized."""
     return __fibos_recursive_tail_call([n, 0, 1])[1]
 
+
+def fibo_array(n: int) -> int:
+    """ Time and space complexity: O(n^2)."""
+    fibos = [0,1]
+    if n >= 2:
+        for i in range(2, n + 1):
+            fibos.append(fibos[i-1] + fibos[i-2])
+    return fibos[n]
