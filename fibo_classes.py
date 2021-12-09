@@ -43,14 +43,11 @@ class Mtx_2_times_2:
         if n <= 0:
             raise Exception("Invalid argument: " + n)
         i = 0
-        mtx_powers = {}
+        E = Mtx_2_times_2(1,0,0,1)
         while n > 0:
             if n % 2 == 1:
-                mtx_powers[i] = self
+                E *= self
             self *= self
             n //= 2
             i += 1
-        E = Mtx_2_times_2(1,0,0,1)
-        for m in mtx_powers.values():
-            E *= m
         return E
