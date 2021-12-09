@@ -43,3 +43,12 @@ def fibo_array(n: int) -> int:
         for i in range(2, n + 1):
             fibos.append(fibos[i-1] + fibos[i-2])
     return fibos[n]
+
+
+def fibo(n: int) -> int:
+    """ O(n^2) time complexity, O(n) space."""
+    a, b = 0, 1
+    while n > 0:
+        a, b = b, a + b
+        n -= 1
+    return a

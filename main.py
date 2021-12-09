@@ -6,7 +6,7 @@ def main():
     print("Testing Fibonacci algorithms:")
 
     print("\nRecursive algorithm:")
-    n = 30
+    n = 36
     start_time = time.time()
     f = fibo_functions.fibo_recursive(n)
     end_time = time.time()
@@ -35,9 +35,16 @@ def main():
     print(f"For n = {n}: {format_very_big_numbers(f)} - Execution time: {round(end_time -  start_time, 3)} sec.")
 
     print("\nSequential calculation and storing in array:")
-    n = 200000
+    n = 250000
     start_time = time.time()
     f = fibo_functions.fibo_array(n)    
+    end_time = time.time()
+    print(f"For n = {n}: {format_very_big_numbers(f)} - Execution time: {round(end_time -  start_time, 3)} sec.")
+
+    print("\nSequential calculation storing only the last 2 numbers:")
+    n = 1000000
+    start_time = time.time()
+    f = fibo_functions.fibo(n)
     end_time = time.time()
     print(f"For n = {n}: {format_very_big_numbers(f)} - Execution time: {round(end_time -  start_time, 3)} sec.")
 
