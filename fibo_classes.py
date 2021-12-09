@@ -10,6 +10,14 @@ class Fibo_Memoization:
         return self.__call__(n)
 
 
+class Fibo_Fastest:
+    """If my calculations are correct the complexity is O(n*log^2(n))"""
+    def __call__(self, n):
+        F = Mtx_2_times_2(0,1,1,1)
+        F = F**n
+        return F.b
+
+
 class Mtx_2_times_2:
     a, b, c, d = 0, 0, 0, 0  #columnwise
     
