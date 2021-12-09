@@ -10,7 +10,7 @@ def main():
     start_time = time.time()
     f = fibo_functions.fibo_recursive(n)
     end_time = time.time()
-    print(f"For n = {n}: {format_very_big_numbers(f)} - Execution time: {round(end_time -  start_time, 3)} sec.")
+    print(f"For n = {n}: {format_very_big_numbers(f)} - Execution time: {round(end_time -  start_time, 6)} sec.")
 
     print("\nRecursive algorithm with memoization:")
     n = 996
@@ -18,35 +18,44 @@ def main():
     fibo_memoization = fibo_classes.Fibo_Memoization()
     f = fibo_memoization(n)
     end_time = time.time()
-    print(f"For n = {n}: {format_very_big_numbers(f)} - Execution time: {round(end_time -  start_time, 3)} sec.")
+    print(f"For n = {n}: {format_very_big_numbers(f)} - Execution time: {round(end_time -  start_time, 6)} sec.")
 
     print("\nRecursive algorithm with one recursive call:")
     n = 996
     start_time = time.time()
     f = fibo_functions.fibo_recursive_linear(n)
     end_time = time.time()
-    print(f"For n = {n}: {format_very_big_numbers(f)} - Execution time: {round(end_time -  start_time, 3)} sec.")
+    print(f"For n = {n}: {format_very_big_numbers(f)} - Execution time: {round(end_time -  start_time, 6)} sec.")
 
     print("\nTail-call optimizable recursive algorithm:")
     n = 900
     start_time = time.time()
     f = fibo_functions.fibo_tail_call(n)
     end_time = time.time()
-    print(f"For n = {n}: {format_very_big_numbers(f)} - Execution time: {round(end_time -  start_time, 3)} sec.")
+    print(f"For n = {n}: {format_very_big_numbers(f)} - Execution time: {round(end_time -  start_time, 6)} sec.")
 
     print("\nSequential calculation and storing in array:")
     n = 250000
     start_time = time.time()
     f = fibo_functions.fibo_array(n)    
     end_time = time.time()
-    print(f"For n = {n}: {format_very_big_numbers(f)} - Execution time: {round(end_time -  start_time, 3)} sec.")
+    print(f"For n = {n}: {format_very_big_numbers(f)} - Execution time: {round(end_time -  start_time, 6)} sec.")
 
     print("\nSequential calculation storing only the last 2 numbers:")
     n = 1000000
     start_time = time.time()
     f = fibo_functions.fibo(n)
     end_time = time.time()
-    print(f"For n = {n}: {format_very_big_numbers(f)} - Execution time: {round(end_time -  start_time, 3)} sec.")
+    print(f"For n = {n}: {format_very_big_numbers(f)} - Execution time: {round(end_time -  start_time, 6)} sec.")
+
+    print("\nMatrix exponentiation with repeated squaring:")
+    n = 2000000
+    start_time = time.time()
+    fibo_fastest = fibo_classes.Fibo_Fastest()
+    f = fibo_fastest(n)
+    end_time = time.time()
+    print(f"For n = {n}: {format_very_big_numbers(f)} - Execution time: {round(end_time -  start_time, 6)} sec.")
+
 
 def format_very_big_numbers(n: int) -> str:
     if n <= 10**20:
