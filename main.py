@@ -6,7 +6,7 @@ def main():
     print("Testing Fibonacci algorithms:")
 
     print("\nRecursive algorithm:")
-    n = 36
+    n = 35
     start_time = time.time()
     f = fibo_functions.fibo_recursive(n)
     end_time = time.time()
@@ -42,14 +42,14 @@ def main():
     print(f"For n = {n}: {format_very_big_numbers(f)} - Execution time: {round(end_time -  start_time, 6)} sec.")
 
     print("\nSequential calculation storing only the last 2 numbers:")
-    n = 1000000
+    n = 500000
     start_time = time.time()
     f = fibo_functions.fibo(n)
     end_time = time.time()
     print(f"For n = {n}: {format_very_big_numbers(f)} - Execution time: {round(end_time -  start_time, 6)} sec.")
 
     print("\nMatrix exponentiation with repeated squaring:")
-    n = 2000000
+    n = 3000000
     start_time = time.time()
     fibo_fastest = fibo_classes.Fibo_Fastest()
     f = fibo_fastest(n)
@@ -58,14 +58,11 @@ def main():
 
 
 def format_very_big_numbers(n: int) -> str:
-    if n <= 10**20:
-        return str(n)
-    k = 0
-    while n >= 10**17:
-        n //= 10
-        k += 1
-    x = float(n) / 10**16
-    return str(x) + "e+" + str(k + 16)
+    n = str(n)
+    if len(n) <= 20:
+        return n
+    else:
+        return f"{n[0]}.{n[1:16]}e+{len(n)-1}"
 
 
 if __name__ == "__main__":
