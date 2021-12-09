@@ -25,4 +25,24 @@ class Mtx_2_times_2:
         nm = max([na,nb,nc,nd])
         return f"| {' '*(nm - na) + str(self.a)}, {' '*(nm - nc) + str(self.c)} |\n| {' '*(nm - nb) + str(self.b)}, {' '*(nm - nd) + str(self.d)} |" 
     
+    def __mul__(self, other):
+        return Mtx_2_times_2(self.a * other.a + self.c * other.b, 
+                             self.b * other.a + self.d * other.b,  
+                             self.a * other.c + self.c * other.d,
+                             self.b * other.c + self.d * other.d)
     
+    def __pow__(self, n):
+        if n <= 0:
+            raise Exception("Invalid argument: " + n)
+        i = 0
+        mtx_powers = {}
+        while n > 0:
+            if n % 2 == 1:
+                mtx_powers[i] = self
+            self *= self
+            n //= 2
+            i += 1
+        E = Mtx_2_times_2(1,0,0,1)
+        for m in mtx_powers.values():
+            E *= m
+        return E
