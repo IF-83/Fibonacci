@@ -2,3 +2,24 @@ body{
     background-image: url("FiboBackground.png");
     background-size: cover;
 }
+
+div.content{
+    background-color: rgba(205, 255, 205, 0.75);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+div.algorithm {
+    padding: 4px;
+}
+
+div.algorithm label {
+    font-weight: bold;
+}
+
+div.algorithm span{
+    margin-left: 26px;
+    font-style: italic;
+    display: block;
+    width: 90%;
+}
