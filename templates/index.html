@@ -7,8 +7,75 @@
     <link rel=stylesheet href="static/styles.css">
 </head>
 <body>
-    <h2>
-        This Fibonacci calculator is almost as cool as the previous two combined.
-    </h2>
+    <div class="content">
+        <h2>
+            This Fibonacci calculator is almost as cool as the previous two combined.
+        </h2>
+        <p>
+            <a href="https://en.wikipedia.org/wiki/Fibonacci_number" target="_blank">Fibonacci numbers</a> are defined by the recursion F<sub>n</sub> = F<sub>n-1</sub> + F<sub>n-2</sub> starting with F<sub>0</sub> = 0 and F<sub>1</sub> = 1.
+            The first few numbers are: 0, 1, 1, 2, 3, 5, 8, 13, 21, 35, 56... <br>
+            Though there is a simple mathematical formula for the n<sup>th</sup> Fibonacci number, it involves the calculation of the n<sup>th</sup> power of irrational numbers, which has very high inaccuracy.
+            With this calculator you can find the exact integer value of Fibonacci numbers up to a few millions under an acceptable time frame.
+            You can also choose your preferred algorithm to use and check how fast it is.
+        </p>
+        <form>
+            <label for="n">Type the value of n and select an algorithm:</label>
+            <input type="text" id="n" name="n">
+            <input type="button" name="Calculate" value="Calculate"><br>
+            <div class="algorithm">
+                <input type="radio" id="recursive" name="method" value="recursive" checked>
+                <label for="recursive">
+                    Naive recursion.
+                </label><br>
+                <span>
+                    Simple recursive function that calls itself for n-1 and n-2. It calculates each value many times, therefore it has exponential complexity. Not a good idea for n greater than 20.
+                </span>
+            </div>
+
+            <div class="algorithm">
+                <input type="radio" id="memoized" name="method" value="memoized">
+                <label for="memoized">
+                    Recursion with memoization.
+                </label><br>
+                <span>
+                    A static array is initialized as [0,1]. When the function is called it returns the n<sup>th</sup> number of the array if it exists. If not, a new value is appended and the function calls itself with the same parameter. Time complexity is O(n<sup>2</sup>), space complexity is O(n<sup>3</sup>) with the n frames that can be eliminated by tail call optimization.
+                </span>
+            </div>
+
+            <div class="algorithm">
+                <input type="radio" id="array" name="method" value="array">
+                <label for="array">
+                    Array and loop.
+                </label><br>
+                <span>
+                    An array is filled with one loop and then the last element is returned. This is an improved version of the previous one without recursion therefor is has O(n<sup>2</sup>) time and space complexity.
+                </span>
+            </div>
+
+            <div class="algorithm">
+                <input type="radio" id="loop" name="method" value="loop">
+                <label for="array">
+                    Loop without array.
+                </label><br>
+                <span>
+                    The most straightforward algorithm. A loop of length n calculates the n<sup>th</sup> number without creating an array for the full sequence (only the last 2 numbers are stored). Time complexity is O(n<sup>2</sup>) time and O(n) space.
+                </span>
+            </div>
+
+            <div class="algorithm">
+                <input type="radio" id="matrix" name="method" value="matrix">
+                <label for="array">
+                    Matrix exponentiation with repetitive squaring.
+                </label><br>
+                <span>
+                    Mathematical observation: the powers of the 2&#215;2 matrix M((0, 1), (1, 1)) contain the Fibonacci numbers. The n<sup>th</sup> power of the matrix can be calculated with repeated squaring with a logarithmic number of multiplications. Complexity is O(nlog(n)) and O(n) space.
+                </span>
+            </div>
+            <p>
+                The <input type="text"><sup>th</sup> Fibonacci number has been calculated in <input type="text"> seconds, it has <input type="text"> decimal digits, its approximate value is <input type="text"> and the exact value is:
+                <input type="textarea">
+            </p>
+        </form>
+    </div>
 </body>
 </html>
