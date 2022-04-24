@@ -12,7 +12,7 @@ def home():
 
 @app.route("/calculate")
 def calculate():
-    result = {"n": None, "sec":None, "fib":None, "float_rep": None, "err":None }
+    result = {"n": None, "sec":None, "fib":None, "float_rep": None, "digits":None, "err":None }
     try:
         n = int(request.args.get("n"))
         alg = request.args.get("method")
@@ -27,6 +27,7 @@ def calculate():
         f = str(methods[alg](n))
         end_time = time.time()
         result["n"] = n
+        result["digits"] = len(f)
         result["fib"] = f
         result["sec"] = round(end_time -  start_time, 6)
         result["float_rep"] = f"{f[0]}.{f[1:16]}e+{len(f)-1}" if len(f) >= 20 else f
