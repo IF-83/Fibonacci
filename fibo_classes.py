@@ -13,6 +13,8 @@ class Fibo_Memoization:
 class Fibo_Fastest:
     """If my calculations are correct the complexity is O(n*log^2(n)) and O(n) space."""
     def __call__(self, n):
+        if n == 0:
+            return 0
         # calculates the nth power of the following matrix by repeated squaring:
         #          | 0   1 |
         #          | 1   1 |   -> the bottom left element is the nth Fibonacci number.
