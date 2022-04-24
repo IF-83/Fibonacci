@@ -1,4 +1,6 @@
 from flask import Flask, render_template, jsonify, request
+import fibo_functions
+import fibo_classes
 
 app = Flask(__name__)
 
@@ -13,8 +15,18 @@ def calculate():
     try:
         n = int(request.args.get("n"))
         alg = request.args.get("method")
-        result["n"] = n**2
-        result["err"] = alg
+
+        methods = {
+            "recursive":fibo_functions.fibo_recursive,
+            "memoized":fibo_classes.Fibo_Memoization(),
+            "array":fibo_functions.fibo_array,
+            "loop":fibo_functions.fibo,
+            "matrix":fibo_classes.Fibo_Fastest()
+        }
+
+        f = methods[alg](n)
+        result["fib"] = f
+
     except:
         result["err"] = "Invalid parameters."
     return jsonify(result)
