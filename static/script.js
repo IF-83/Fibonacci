@@ -7,7 +7,7 @@ button.addEventListener("click", fetchFibo)
 function fetchFibo() {
     let n = document.querySelector("#n").value
     algorithm = document.querySelector("input[name=method]:checked").value
-    fetch("/calculate")
+    fetch("/calculate?n="+n+"&method="+algorithm)
     .then( data => data.json())
-    .then( data => alert(data.x))
+    .then( data => console.log(data))
 }
