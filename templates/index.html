@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<title>Fibonacci calculator</title>
     <link rel=stylesheet href="static/styles.css">
+    <script src="static/script.js" defer></script>
 </head>
 <body>
     <div class="content">
@@ -21,7 +22,7 @@
         <form>
             <label for="n">Type the value of n and select an algorithm:</label>
             <input type="text" id="n" name="n">
-            <input type="button" name="Calculate" value="Calculate"><br>
+            <input type="button" id="calc" name="Calculate" value="Calculate"><br>
             <div class="algorithm">
                 <input type="radio" id="recursive" name="method" value="recursive" checked>
                 <label for="recursive">
