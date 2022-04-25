@@ -33,7 +33,7 @@ def calculate():
         result["sec"] = round(end_time -  start_time, 6)
         result["float_rep"] = f"{f[0]}.{f[1:16]}e+{len(f)-1}" if len(f) >= 20 else f
     except RecursionError as re:
-        result["err"] = f"Parameter n = {n} is too large for this algorithm. The maximum number of recursive calls is {sys.getrecursionlimit}. Please try a non-recursive algorithm."
+        result["err"] = f"Parameter n = {n} is too large for this algorithm. The maximum number of recursive calls is {sys.getrecursionlimit()}. Please try a non-recursive algorithm."
     except ValueError as ve:
         result["err"] = "Invalid input. Please type a positive integer for n and try again."
     except:
