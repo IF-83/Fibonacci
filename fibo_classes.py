@@ -1,8 +1,10 @@
-
+import sys
 
 class Fibo_Memoization:
     """ Recursion with memoization: O(n^2) time complexity, but O(n^2) space as well."""
-    memory = [0,1]
+    def __init__(self) -> None:
+        self.memory = [0,1]
+
     def __call__(self, n:int) -> int:
         if len(self.memory) >= n + 1:
             return self.memory[n]
