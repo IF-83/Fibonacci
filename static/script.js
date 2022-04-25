@@ -1,4 +1,8 @@
 
+window.onload = function() {
+    document.querySelector("div#output p").value = ""
+    document.querySelector("div#output input").value = ""
+}
 button = document.querySelector("#calc")
 button.addEventListener("click", fetchFibo)
 
@@ -6,11 +10,16 @@ button.addEventListener("click", fetchFibo)
 function fetchFibo() {
     let n = document.querySelector("#n").value
     algorithm = document.querySelector("input[name=method]:checked").value
+
+    output_par = document.querySelector("div#output p")
+    output_area = document.querySelector("div#output input")
+
+    output_par.innerHTML = ""
+    output_area.value = ""
+
     fetch("/calculate?n="+n+"&method="+algorithm)
     .then( data => data.json())
     .then( data => {
-        output_par = document.querySelector("div#output p")
-        output_area = document.querySelector("div#output input")
         if (data.err) {
             output_par.innerHTML = data.err
             output_area.value = "ERROR"
