@@ -22,7 +22,7 @@
         </p>
         <form>
             <label for="n">Type the value of n and select an algorithm:</label>
-            <input type="text" id="n" name="n">
+            <input type="text" id="n" name="n" onkeypress="if(event.keyCode == 13) return false">
             <input type="button" id="calc" name="Calculate" value="Calculate"><br>
 
             <div class="algorithm">
