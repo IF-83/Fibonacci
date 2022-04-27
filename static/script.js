@@ -14,7 +14,7 @@ function fetchFibo() {
     output_par = document.querySelector("div#output p")
     output_area = document.querySelector("div#output input")
 
-    output_par.innerHTML = ""
+    output_par.innerHTML = "Waiting for the server..."
     output_area.value = ""
 
     fetch("/calculate?n="+n+"&method="+algorithm)
