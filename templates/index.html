@@ -41,7 +41,7 @@
                     Recursion with memoization.
                 </label><br>
                 <span>
-                    A static array is initialized as [0,1]. When the function is called it returns the n<sup>th</sup> number of the array if it exists. If not, a new value is appended and the function calls itself with the same parameter. Time complexity is O(n<sup>2</sup>), space complexity is O(n<sup>3</sup>) with the n frames that can be eliminated by tail call optimization.
+                    A static array is initialized as [0,1]. When the function is called it returns the n<sup>th</sup> number of the array if it exists. If not, a new value is appended and the function calls itself with the same parameter. Time complexity is O(n<sup>2</sup>), space complexity is O(n<sup>3</sup>) with the n frames that can be eliminated by tail call optimization. Suitable for n &#8804 500.
                 </span>
             </div>
 
@@ -51,7 +51,7 @@
                     Array and loop.
                 </label><br>
                 <span>
-                    An array is filled with one loop and then the last element is returned. This is an improved version of the previous one without recursion therefor is has O(n<sup>2</sup>) time and space complexity.
+                    An array is filled with one loop and then the last element is returned. This is an improved version of the previous one without recursion therefor is has O(n<sup>2</sup>) time and space complexity. Limit for n is 100 thousand.
                 </span>
             </div>
 
@@ -61,7 +61,7 @@
                     Loop without array.
                 </label><br>
                 <span>
-                    The most straightforward algorithm. A loop of length n calculates the n<sup>th</sup> number without creating an array for the full sequence (only the last 2 numbers are stored). Time complexity is O(n<sup>2</sup>) time and O(n) space.
+                    The most straightforward algorithm. A loop of length n calculates the n<sup>th</sup> number without creating an array for the full sequence (only the last 2 numbers are stored). Time complexity is O(n<sup>2</sup>) time and O(n) space. Recommended for n less than one million.
                 </span>
             </div>
 
@@ -71,7 +71,7 @@
                     Matrix exponentiation with repeated squaring.
                 </label><br>
                 <span>
-                    Mathematical observation: the powers of the 2&#215;2 matrix M((0, 1), (1, 1)) contain the Fibonacci numbers. The n<sup>th</sup> power of the matrix can be calculated with repeated squaring with a logarithmic number of multiplications. Complexity is O(nlog(n)) and O(n) space.
+                    Mathematical observation: the powers of the 2&#215;2 matrix M((0, 1), (1, 1)) contain the Fibonacci numbers. The n<sup>th</sup> power of the matrix can be calculated with repeated squaring with a logarithmic number of multiplications. Complexity is O(nlog(n)) and O(n) space. To spare the server the limit is 10 million here but the algorithm works even for higher values of n.
                 </span>
             </div>
         </form>
