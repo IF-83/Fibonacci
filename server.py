@@ -24,6 +24,17 @@ def calculate():
             "loop":fibo_functions.fibo,
             "matrix":fibo_classes.Fibo_Fastest()
         }
+        limits = {
+            "recursive": 30,
+            "memoized": 900,
+            "array": 100000,
+            "loop": 2000000,
+            "matrix": 10000000
+        }
+        if n > limits[alg]:
+            result["err"] = "This calculation consumes too much resources for such a large input. Please choose a more advanced algorithm. If you want to do the calculation for n greater than 10 million or experiment with the running time of the different methods, please clone the repository from <a href='https://github.com/IF-83/Fibonacci' target='_blank'>here</a> and run the program on your own computer."
+            result["n"] = n
+            return jsonify(result)
         start_time = time.time()
         f = str(methods[alg](n))
         end_time = time.time()
@@ -33,7 +44,7 @@ def calculate():
         result["sec"] = round(end_time -  start_time, 6)
         result["float_rep"] = f"{f[0]}.{f[1:16]}e+{len(f)-1}" if len(f) >= 20 else f
     except RecursionError as re:
-        result["err"] = f"Parameter n = {n} is too large for this algorithm. The maximum number of recursive calls is {sys.getrecursionlimit()}. Please try a non-recursive algorithm."
+        result["err"] = f"Parameter n = {n} is too large. Please try a non-recursive algorithm."
     except ValueError as ve:
         result["err"] = "Invalid input. Please type a positive integer for n and try again."
     except:
